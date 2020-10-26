@@ -1,0 +1,10 @@
+@import '../../../sass/partials/settings.scss';
+
+
+.content-wrapper {
+  margin: .8rem 1rem;
+  background-color: $color-light;
+  border-radius: $radius;
+  box-shadow: 0px 0px 30px 0px rgba(82, 63, 105, 0.05);
+  padding-bottom: 3rem; 
+}

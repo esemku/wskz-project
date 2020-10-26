@@ -6,9 +6,9 @@ const Footer = () => {
   return (
     <footer className='footer'>
       <div className='sectionOne'>
-        <span>About</span>
-        <span>Team</span>
-        <span>Contact</span>
+        <span>O Nas</span>
+        <span>Zespół</span>
+        <span>Kontakt</span>
       </div>
       <div className='sectionTwo'>
         <span>2020© </span>

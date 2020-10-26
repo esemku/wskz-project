@@ -8,7 +8,7 @@ const SideNav = () => {
   return (
     <div className='sidenav'>
       <div className='logo-wrapper'>
-        <div className='logo'>WSKZ PROJECT</div>
+        <div className='logo'>WSKZ PROJEKT</div>
         <i className='fas fa-bars'></i>
       </div>
       <SideNavItems />

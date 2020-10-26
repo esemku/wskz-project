@@ -3,7 +3,7 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div>Header!!!</div>
+    <header style={{ display: 'none' }}>Header!!!</header>
   )
 }
 

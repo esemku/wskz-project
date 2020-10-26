@@ -1,0 +1,9 @@
+@import '../../../sass/partials/settings.scss';
+
+
+.outlineInfoIcon {
+  svg {
+    fill: $color-warning;
+    width: 1rem;
+  }
+}

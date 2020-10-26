@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 
 const SideNavItems = () => {
@@ -15,7 +15,7 @@ const SideNavItems = () => {
   ]
 
   return (
-    <div style={{ display: 'none'}} classname=''>
+    <nav style={{ display: 'none'}} classname=''>
       {items.map(item => {
         return(
           <div className=''>
@@ -33,7 +33,7 @@ const SideNavItems = () => {
           </div>
         )
       })}
-    </div>
+    </nav>
   )
 }
 

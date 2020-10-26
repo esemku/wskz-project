@@ -1,6 +1,7 @@
-@import '../../styles/settings.scss';
+@import '../../sass/partials/settings.scss';
 
 .app-wrapper {
+  background-color: $color-background-pri;
 
 }
 
@@ -12,6 +13,8 @@
 }
 
 .container {
-  background-color: $color-background-pri;
-  // height: calc(100vh - 3.5rem );
+  min-height: calc(100vh - 3.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
