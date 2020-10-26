@@ -43,6 +43,7 @@
   &__input-msg {
     color: $color-warning;
     padding-left: .3rem;
+    font-size: $xs-size;
   }
   &__input {
     background-color: $color-inputBcg;
@@ -68,6 +69,7 @@
     font-weight: 500;
     height: 3rem;
     width: 7rem;
+    font-size: $sm-size;
   }
   &__btn--submit {
     background-color: $color-blue;

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import './FormContent.scss'
 import { Formik } from 'formik'
+import { connect } from 'react-redux'
+import { register } from '../../../../redux/actions/formActions'
 
 import InputWrapper from './InputWrapper'
 
 
-const FormContent = () => {
+const FormContent = ({ register }) => {
 
   const [userData, serUserData] = useState({
     login: '',
@@ -26,9 +28,7 @@ const FormContent = () => {
 
   const handleFormikSubmit = (e, email, password, firstName) => {
     e.preventDefault()
-    console.log('email: ', email)
-    console.log('password: ', password)
-    console.log('firstName: ', firstName)
+    register({ data: firstName })
   }
 
   return (
@@ -176,4 +176,8 @@ const FormContent = () => {
 }
 
 
-export default FormContent
+const mapDispatchToProps = {
+  register
+}
+
+export default connect(null, mapDispatchToProps)(FormContent)
