@@ -5,6 +5,15 @@ import { connect } from 'react-redux'
 import { register } from '../../../../redux/actions/formActions'
 
 import InputWrapper from './InputWrapper'
+import InputWrapperRadio from './InputWrapperRadio'
+import InputWrapperCheckbox from './InputWrapperCheckbox'
+import {
+  checkEmail,
+  checkZipCode,
+  checkNumberExist,
+  checkSpecialCharacter,
+  checkUpperCase
+} from '../validation/formValidation'
 
 
 const FormContent = ({ register }) => {
@@ -22,12 +31,14 @@ const FormContent = ({ register }) => {
     postcode: '',
     phone: '',
     pesel: '',
-    regApproval: false,
-    marApproval: false
+    regApproval: '',
+    marApproval: ''
   })
 
-  const handleFormikSubmit = (e, email, password, firstName) => {
+  const handleFormikSubmit = (e, email, password, firstName, gender, regApproval, marApproval) => {
     e.preventDefault()
+    console.log('regApproval: ', regApproval);
+    console.log('marApproval: ', marApproval);
     register({ data: firstName })
   }
 
@@ -36,13 +47,37 @@ const FormContent = ({ register }) => {
       initialValues={userData}
       validate={values => {
         const errors = {}
-
-        if (!values.email) {
-          errors.email = 'Pole wymagane'
+        /*Login*/
+        if (values.login.length < 4) {
+          errors.login = 'Minimum 4 znaki'
         }
-
-        if (!values.password) {
-          errors.password = 'Pole wymagane'
+        /*Password*/
+        if (values.password.length < 8) {
+          errors.password = 'Minimum 8 znaków'
+        }
+        if (!checkUpperCase(values.password)) {
+          errors.password = 'Minimum 1 wielka litera'
+        }
+        if (!checkNumberExist(values.password)) {
+          errors.password = 'Minimum 1 cyfra'
+        }
+        if (!checkSpecialCharacter(values.password)) {
+          errors.password = 'Minimum 1 znak specjalny'
+        }
+        /*Zip code*/
+        if (!checkZipCode(values.postcode)) {
+          errors.postcode = 'Nieprawidłowy kod pocztowy'
+        }
+        if (values.postcode.length > 6) {
+          errors.postcode = 'Nieprawidłowy kod pocztowy'
+        }
+        /*Email*/
+        if (checkEmail(values.email)) {
+          errors.email = 'Email jest niepoprawny'
+        }
+        /*Pesel*/
+        if (values.pesel.length !== 9 && values.pesel.length !== 16) {
+          errors.pesel = 'Nieprawidłowy pesel'
         }
 
         return errors
@@ -103,6 +138,14 @@ const FormContent = ({ register }) => {
               error={errors.lastName}
               touched={touched.lastName}
             />
+            <InputWrapperRadio
+              name='gender'
+              title='Płeć'
+              handleChange={handleChange}
+              handleBlur={handleBlur}
+              error={errors.gender}
+              touched={touched.gender}
+            />
             <InputWrapper
               name='address'
               placeholder='Adres'
@@ -132,6 +175,7 @@ const FormContent = ({ register }) => {
             />
             <InputWrapper
               name='postcode'
+              type='text'
               placeholder='Kod pocztowy'
               value={values.postcode}
               handleBlur={handleBlur}
@@ -157,12 +201,32 @@ const FormContent = ({ register }) => {
               error={errors.pesel}
               touched={touched.pesel}
             />
+            <InputWrapperCheckbox
+              name='regApproval'
+              content='Wyrażam zgodę na przetwarzanie danych'
+              handleBlur={handleBlur}
+              handleChange={handleChange}
+            />
+            <InputWrapperCheckbox
+              name='marApproval'
+              content='Wyrażam zgodę na przesyłanie reklam'
+              handleBlur={handleBlur}
+              handleChange={handleChange}
+            />
 
             <div className='form__btn-wrapper'>
               <button
                 type='submit'
                 className='form__btn form__btn--submit'
-                onClick={(e) => handleFormikSubmit(e, values.email, values.password, values.firstName)}
+                onClick={(e) => handleFormikSubmit(
+                  e,
+                  values.email,
+                  values.password,
+                  values.firstName,
+                  values.gender,
+                  values.regApproval,
+                  values.marApproval
+                )}
               >
                 Zarejestruj się
               </button>
