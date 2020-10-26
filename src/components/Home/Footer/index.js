@@ -1,14 +1,13 @@
 import React from 'react'
 
 
-function App() {
-
+const Footer = () => {
   return (
     <div>
-      App!!!
+      Footer!!!
     </div>
   )
 }
 
 
-export default App
+export default Footer

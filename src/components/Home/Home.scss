@@ -1,0 +1,17 @@
+@import '../../styles/settings.scss';
+
+.app-wrapper {
+
+}
+
+.side-nav-wrapper {
+  background-color: $color-black-sec;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  background-color: $color-background-pri;
+  // height: calc(100vh - 3.5rem );
+}
