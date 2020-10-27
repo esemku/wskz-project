@@ -5,7 +5,6 @@ import { API } from '../api/API'
 
 
 export function* fetchRegister({ data }) {
-  console.log('Register SAGA: ', data);
   try {
     const response = yield API.post(apiEndpoint.REGISTER, { data })
   } catch (err) {

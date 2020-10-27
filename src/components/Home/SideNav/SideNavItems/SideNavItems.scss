@@ -1,0 +1,43 @@
+@import '../../../../sass/partials/settings.scss';
+
+
+.sideNavItems {
+  display: none;
+  &__item-wrapper {
+    margin-bottom: 2rem;
+  }
+  &__item-title {
+    color: $color-mid-grey;
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .024rem;
+    padding-left: 1.5rem;
+  }
+  &__item-li {
+    font-weight: 400;
+    font-size: .86rem;
+    padding: 1rem 1.5rem;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    background-color: $color-dark-grey;
+    color: $color-light;
+  }
+}
+
+.fa-id-badge {
+  color: #3699FF;
+  font-size: 1rem;
+  padding-right: 1rem;
+  transition: all .2s ease-in-out;
+  width: 1.8rem;
+}
+
+
+
+/* MEDIA */
+@media (min-width: 600px) {
+  .sideNavItems {
+    display: block;
+    width: 100%;
+  }
+}

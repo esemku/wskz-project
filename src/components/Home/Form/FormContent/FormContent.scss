@@ -32,18 +32,22 @@
   }
   &__input-wrapper {
     position: relative;
-    margin: .8rem 0;
-    text-align: center;
+    margin: .5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   &__icon-wrapper {
     position: absolute;
     top: .8rem;
-    right: 4rem;
+    right: 2rem;
   }
   &__input-msg {
     color: $color-warning;
-    padding-left: .3rem;
     font-size: $xs-size;
+    margin-top: .2rem;
+    align-self: flex-start;
+    margin-left: 1.8rem;
   }
   &__input {
     background-color: $color-inputBcg;
@@ -58,10 +62,13 @@
   }
   &__input-title {
     color: $color-light-black;
+    margin-bottom: .5rem;
   }
   //Radio input
   &__radio-wrapper {
     display: flex;
+    margin-bottom: .2rem;
+    color: $color-light-black;
     label {
       display: flex;
       align-items: center;
@@ -70,10 +77,10 @@
   }
   //Checkbox input
   &__input--radio {
-
+    margin-right: .5rem;
   }
   &__input--checkbox {
-
+    margin-right: .5rem;
   }
 
   /*** Buttons ***/
@@ -88,10 +95,43 @@
     height: 3rem;
     width: 7rem;
     font-size: $sm-size;
+    &:hover {
+      background-color: $color-blue-hover;
+    }
+    &:disabled {
+      opacity: 0.6;
+    }
   }
   &__btn--submit {
     background-color: $color-blue;
     color: $color-light;
+  }
+}
+
+
+/* MEDIA */
+@media (min-width: 600px) {
+  .form {
+    font-size: $base-size;
+    &__h1 {
+      font-size: $xl-size;
+    }
+    &__input-msg {
+      font-size: $sm-size;
+    }
+    &__input {
+      height: 3.3rem;
+      width: 25rem;
+    }
+    &__btn {
+      font-size: $base-size;
+    }
+    &__icon-wrapper {
+      right: 1rem;
+    }
+    &__input-msg {
+      margin: .5rem 0 0 .5rem;
+    }
   }
 
 }

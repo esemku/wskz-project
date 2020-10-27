@@ -1,9 +1,10 @@
 import React from 'react'
+import './Header.scss'
 
 
 const Header = () => {
   return (
-    <header style={{ display: 'none' }}>Header!!!</header>
+    <header className='header'></header>
   )
 }
 

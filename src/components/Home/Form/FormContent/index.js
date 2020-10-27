@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './FormContent.scss'
 import { Formik } from 'formik'
 import { connect } from 'react-redux'
@@ -17,7 +17,6 @@ import {
 
 
 const FormContent = ({ register }) => {
-
   const [userData, serUserData] = useState({
     login: '',
     password: '',
@@ -35,11 +34,9 @@ const FormContent = ({ register }) => {
     marApproval: ''
   })
 
-  const handleFormikSubmit = (e, email, password, firstName, gender, regApproval, marApproval) => {
+  const handleFormikSubmit = (e, values) => {
     e.preventDefault()
-    console.log('regApproval: ', regApproval);
-    console.log('marApproval: ', marApproval);
-    register({ data: firstName })
+    register({ data: values })
   }
 
   return (
@@ -165,15 +162,6 @@ const FormContent = ({ register }) => {
               touched={touched.province}
             />
             <InputWrapper
-              name='town'
-              placeholder='Miasto'
-              value={values.town}
-              handleBlur={handleBlur}
-              handleChange={handleChange}
-              error={errors.town}
-              touched={touched.town}
-            />
-            <InputWrapper
               name='postcode'
               type='text'
               placeholder='Kod pocztowy'
@@ -182,6 +170,15 @@ const FormContent = ({ register }) => {
               handleChange={handleChange}
               error={errors.postcode}
               touched={touched.postcode}
+            />
+            <InputWrapper
+              name='town'
+              placeholder='Miasto'
+              value={values.town}
+              handleBlur={handleBlur}
+              handleChange={handleChange}
+              error={errors.town}
+              touched={touched.town}
             />
             <InputWrapper
               name='phone'
@@ -213,20 +210,12 @@ const FormContent = ({ register }) => {
               handleBlur={handleBlur}
               handleChange={handleChange}
             />
-
             <div className='form__btn-wrapper'>
               <button
                 type='submit'
+                disabled={Object.values(errors).length > 0}
                 className='form__btn form__btn--submit'
-                onClick={(e) => handleFormikSubmit(
-                  e,
-                  values.email,
-                  values.password,
-                  values.firstName,
-                  values.gender,
-                  values.regApproval,
-                  values.marApproval
-                )}
+                onClick={(e) => handleFormikSubmit(e, values)}
               >
                 Zarejestruj się
               </button>

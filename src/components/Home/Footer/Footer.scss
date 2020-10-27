@@ -18,6 +18,10 @@
   span {
     color: rgb(126, 130, 153);
     margin-right: 1rem;
+    cursor: pointer;
+    &:hover {
+      color: $color-blue;
+    }
   }
 }
 
@@ -27,5 +31,18 @@
   }
   span:last-of-type {
     color: $color-light-black;
+  }
+}
+
+
+/* MEDIA */
+@media (min-width: 600px) {
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: $base-size;
+  }
+  .sectionOne {
+    margin: 0;
   }
 }

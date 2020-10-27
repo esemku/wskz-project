@@ -2,7 +2,6 @@
 
 .app-wrapper {
   background-color: $color-background-pri;
-
 }
 
 .side-nav-wrapper {
@@ -17,4 +16,23 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+
+/* MEDIA */
+@media (min-width: 600px) {
+  .app-wrapper {
+    display: flex;
+  }
+  .container {
+    width: calc(100% - 16.5rem);
+    font-size: $base-size;
+  }
+  .side-nav-wrapper {
+    min-width: 16.5rem;
+    max-width: 16.5rem;
+    height: auto;
+    align-items: flex-start;
+    background-color: rgb(30, 30, 45);
+  }
 }

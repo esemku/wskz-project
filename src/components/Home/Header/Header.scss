@@ -1,0 +1,17 @@
+@import '../../../sass/partials/settings.scss';
+
+
+.header {
+  display: none;
+  background-color: $color-light;
+  height: 4rem;
+  border-bottom: 1px solid #EBEDF3;
+}
+
+
+/* MEDIA */
+@media (min-width: 600px) {
+  .header {
+    display: flex;
+  }
+}
