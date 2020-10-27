@@ -5,10 +5,10 @@ import './SideNavItems.scss'
 const SideNavItems = () => {
   const items = [
     {
-      title: 'SECTIONS',
+      title: 'SEKCJE',
       list: [
         {
-          title: 'Form',
+          title: 'Formularz rejestracji',
           icon: 'fas fa-boxes'
         }
       ]
